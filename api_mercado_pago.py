@@ -146,4 +146,7 @@ def pagamento_erro():
     return render_template("erro.html")
 
 if __name__ == '__main__':
-    api.run(port=1533)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    api.run(host='0.0.0.0', port=port)
+
