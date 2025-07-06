@@ -92,10 +92,12 @@ def webhook():
 
   
 
-# 💰 ROTA PRINCIPAL DE PAGAMENTO PIX
+# 🔄 ROTA MODIFICADA COM DEBUG
 @api.route("/l")
 def gerar_pagamento_pix():
     try:
+        print(f"🔐 Token usado: {ACCESS_TOKEN}")
+
         sdk = mercadopago.SDK(ACCESS_TOKEN)
 
         payment_data = {
@@ -123,6 +125,9 @@ def gerar_pagamento_pix():
 
         payment_response = sdk.payment().create(payment_data)
 
+        # 🔍 DEBUG DA RESPOSTA CRUA
+        print("📦 Resposta do Mercado Pago:", payment_response)
+
         if payment_response["status"] != 201:
             raise Exception(f"Erro ao criar pagamento: {payment_response.get('message', 'Erro desconhecido')}")
 
@@ -137,8 +142,12 @@ def gerar_pagamento_pix():
         return render_template("pix.html", qr_code=img_base64, link=qr_link)
 
     except Exception as e:
-        print(f"Erro ao gerar pagamento PIX: {str(e)}")
-        return "Erro ao gerar pagamento", 500
+        print(f"❌ Erro ao gerar pagamento PIX: {str(e)}")
+        return jsonify({
+            "erro": str(e),
+            "token": ACCESS_TOKEN[:5] + "..." if ACCESS_TOKEN else "não definido"
+        }), 500
+
 
 # ✅ TELAS DE REDIRECIONAMENTO
 @api.route("/pagamento/aprovado")
