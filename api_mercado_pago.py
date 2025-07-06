@@ -23,6 +23,8 @@ EMAIL_SENHA = os.getenv("EMAIL_SENHA")
 
 api = Flask(__name__, template_folder='templates', static_folder='static')
 
+  
+
 # 📧 FUNÇÃO DE ENVIAR EMAIL
 def enviar_email(destinatario, assunto, corpo):
     try:
@@ -88,8 +90,10 @@ def webhook():
 
     return 'Webhook online (GET)', 200
 
+  
+
 # 💰 ROTA PRINCIPAL DE PAGAMENTO PIX
-@api.route("/")
+@api.route("/l")
 def gerar_pagamento_pix():
     try:
         sdk = mercadopago.SDK(ACCESS_TOKEN)
@@ -145,8 +149,13 @@ def pagamento_aprovado():
 def pagamento_erro():
     return render_template("erro.html")
 
+
+@api.route('/')
+def teste():
+    return('teste')
+
 if __name__ == '__main__':
     import os
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 4000))
     api.run(host='0.0.0.0', port=port)
 
