@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Erro no Pagamento</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      height: 100vh;
+      background: #121212 url('logovaiRapidoUber.png') no-repeat center center;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #ff4c4c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkout-container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .checkout-image {
+      width: 100px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 5px #ff4c4c);
+    }
+
+    .shake {
+      animation: shake 0.5s infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    h1 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <img class="checkout-image shake" src="https://cdn-icons-png.flaticon.com/512/463/463612.png" alt="Erro Pagamento" />
+    <h1>Pagamento Falhou</h1>
+    <p>Houve um erro ao processar seu pagamento.</p>
+  </div>
+
+  <audio autoplay>
+    <source src="https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg" type="audio/ogg" />
+  </audio>
+</body>
+</html>

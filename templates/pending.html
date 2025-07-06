@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagamento Pendente</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      height: 100vh;
+      background: #121212 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #ffcc00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkout-container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .checkout-image {
+      width: 100px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 5px #ffcc00);
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    h1 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="checko
